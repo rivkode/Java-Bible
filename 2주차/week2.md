@@ -1,0 +1,670 @@
+# 객체 지향 프로그래밍이란 ?
+
+### 객체지향
+
+객체지향 언어 = 프로그래밍 언어 + 객체지향개념(규칙)
+
+- 캡슐화
+- 상속
+- 추상화
+- 다형성(가장 중요!)
+
+코드의 재사용성이 높음, 유지보수가 좋음, 중복 코드 제거
+
+## 클래스와 객체
+
+클래스의 정의 - 클래스란 객체를 정의해 놓은 것
+
+클래스의 용도 - 클래스는 객체를 생성하는데 사용
+
+객체의 정의 - 실제로 존재하는 것, 사물 또는 개념
+
+객체의 용도 - 객체가 가지고 있는 기능과 속성에 따라 다름
+
+클래스 - TV설계도, 객체 - TV
+
+(tv를 만드려면 설계도를 먼저 만들고 tv를 만듦, 그것과 같은 원리)
+
+## 객체의 구성요소 - 속성과 기능
+
+속성 - 크기, 길이, 높이, 색상 등
+
+기능 - 켜기, 끄기, 볼륨 높이기, 채널 변경하기 등
+
+TV 설계도
+
+```java
+class TV {
+	String color; // 색깔
+	boolean power; // 전원
+	int channel; // 채널
+	
+	void power () { power = !power; }
+	void channelUp() { channel++; }
+	void channelDown() { channel--; }
+```
+
+객체와 인스턴스
+
+객체 : 모든 인스턴스를 대표하는 일반적 용어
+
+인스턴스 : 특정 클래스로부터 생성된 객체
+
+인스턴스화 : 클래스(설계도) → 인스턴스(제품, 객체)
+
+클래스가 왜 필요한가 ? → 객체를 생성하기 위해
+
+객체가 왜 필요한가 ? → 객체를 사용하기 위해
+
+객체를 사용한다는 것은 ? → 객체가 가진 속성(변수)과 기능(메서드)을 사용하려고
+
+## 객체의 생성과 사용
+
+객체의 생성
+
+```java
+클래스명 변수명; // 클래스 객체를 참조하기 위한 참조변수를 선언
+변수명 = new 클래스명(); // 클래스의 객체를 생성 후, 객체의 주소를 참조변수에 저장
+
+Tv t; //TV클래스 타입의 참조변수 t를 선언
+t = new Tv(); // TV인스턴스를 생성한 후, 생성된 tv인스턴스의 주소를 t에 저장
+```
+
+1단계 : 참조변수 선언 → 2단계 : 객체 생성 → 3단계 : 객체와 참조변수 연결
+
+객체를 만들게 되면 아래와 같이 생성됨
+
+```java
+t(0X100) ->
+
+-> 0X100
+color : null
+power : false
+channel : 0 // 7->6로 바뀜
+power ()
+channelUP()
+channelDown()
+```
+
+객체를 다룰때는 반드시 참조변수 t(tv 리모콘)를 통해서만 가능
+
+객체는 클래스가 정의된 대로 똑같이 만들어짐
+
+- 클래스의 구성요소(=멤버)가 6개(변수3개, 메서드3개)이므로 객체의 구성요소도 6개
+
+객체의 사용
+
+```java
+[t.channel](http://t.channel) = 7; // 값 설정
+t.channelDown(); // 메서드 호출
+System.out.println("현재 채널은 "+t.channel+"입니다");
+```
+
+TV 설계도 작성 → TV 객체 생성 → TV 객체 사용
+
+만약 객체가 2개라면 ?
+
+2개의 객체가 만들어지고 각각의 다른 공간을 갖는다
+
+<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\주소변경" width="450"/>
+
+주소 변경
+
+`t2 = t1;`  를 하게 되면 객체가 복사되는 것이 아님, 기존에 있던 0X200과의 주소 연결이 끊기게 됨, 즉 `t2 = 0X100;` 과 같은 말, 참조변수 주소 연결을 바꿔주는 것, 0X200은 그대로 존재하지만
+
+(수정필요)아무 연결이 없으므로 주소연결되기 전까지는 객체를 사용할 수 없음, 이후 GC(가비지컬렉터)가 삭제함
+
+하나의 인스턴스를 여러 개의 참조변수가 가리키는 경우(가능)
+
+여러 인스턴스를 하나의 참조변수가 가리키는 경우 (불가능)
+
+## 객체 배열
+
+객체배열 == 참조변수 배열, 참조변수들의 모임
+
+
+
+<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\객체배열" width="450"/>
+
+객체배열을 만들고 객체 생성을 반드시 해줘야 함 → `tvArr[0] = new Tv();`
+
+선언만 하는 경우도 많다고 함
+
+## 클래스의 정의
+
+클래스 == 데이터 + 함수 (서로 관련있는 것들의 모임)
+
+발전과정 - (변수 → 배열 → 구조체 → 클래스)
+
+사용자 정의 타입 - 원하는 타입을 직접 만듬
+
+```java
+class Time {
+	int hour;
+	int minute;
+	int second;
+}
+Time t = new Time(); // t.hour로 접근 가능
+```
+
+선언위치에 따른 변수의 종류
+
+영역
+
+- 클래스영역 iv, cv(static + iv)
+- 메서드 영역 lv (local variable)
+
+| 변수 | 선언위치 | 생성시기 |
+| --- | --- | --- |
+| 클래스 변수, cv | 클래스 영역 | 클래스가 메모리에 올라갈때 |
+| 인스턴스 변수, iv | 클래스 영역 | 인스턴스가 생성되었을 때 |
+| 지역변수, lv | 메서드 영역 | 변수 선언문이 수행되었을 때 |
+
+cv 생성은 파일이 cpu처리를 위해 메모리(ram)로 올라갈때
+
+객체 = iv를 묶어놓은 것, iv 모임
+
+클래스 변수와 인스턴스 변수
+
+카드 클래스라면?
+
+클래스 변수 - 공통 속성 (폭, 높이)
+
+인스턴스 변수 - 개별 속성 (무늬, 숫자)
+
+클래스 변수 cv 사용시 클래스 이름으로 객체변수에 접근하자 `Card.width = 200;`
+
+## 메서드란?
+
+메서드 == {문장들을 묶어놓은 것} , 작업단위로 문장들을 묶어서 이름을 붙인 것
+
+메서드 작성
+
+반복적으로 수행되는 여러 문장을 작성, 하나의 메서드는 한가지 기능만 수행
+
+입력 0~n개, 출력 0~1개
+
+선언부 + 구현부로 이루어져있음
+
+```java
+반환타입 메서드이름 (타입 변수명, …) {
+//메서드 호출시 수행할 코드
+return 반환타입;
+}
+```
+
+여러개의 입력이 필요할때 객체로 전달 가능 - 첨부파일을 압축하는 것과 비슷함
+
+메서드 호출 : 메서드 이름(값1, 값2, 값3, …);
+
+## return 문, 반환값
+
+메서드 반환타입이 void일 경우 `return;` 로 생략이 가능
+
+메서드 반환타입이 존재할 경우 반드시 return 문 필요
+
+반환값은 반환타입과 타입이 일치해야함
+
+## 호출 스택 call stack
+
+스택 - 밑이 막힌 상자, 위에 차곡차곡 쌓임, 위에서부터 꺼냄
+
+main함수의 println 이 사용되는 과정
+
+<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\호출스택" width="450"/>
+
+호출스택의 변화
+
+빈 스택 - 메인 메서드가 스택에 올라감 - 메인메서드가 println메서드 호출, main메서드는 대기상태, println 메서드는 실행, hello출력후 작업이 끝났으므로 스택에서  사라짐 - main메서드 실행상태, 작업이 끝났으므로 스택에서 사라짐 - 프로그램 종료
+
+## 기본형 매개변수
+
+기본형 매개변수 = 변수의 값을 읽기만 할 수 있다 (read only)
+
+참조형 매개변수 = 변수의 값을 읽고 변경할 수 있다 (read&write)
+
+기본형 매개변수
+
+```java
+class Data { int x; }
+
+class Ex6_6 {
+	public static void main(String[] args) {
+		Data d = new Data();
+		d.x = 10;
+		System.out.println("main() : x = " + d.x);
+
+		change(d.x);
+		System.out.println("After change(d.x)");
+		System.out.println("main() : x = " + d.x);
+	}
+
+	static void change(int x) {  // 기본형 매개변수
+		x = 1000;
+		System.out.println("change() : x = " + x);
+	}
+}
+```
+
+change메소드 이후 결과는 바뀌지 않음 객체를 참조하지 않았으므로
+
+참조형 매개변수
+
+```java
+class Data2 { int x; }
+
+class Ex6_7 {
+	public static void main(String[] args) {
+		Data2 d = new Data2();
+		d.x = 10;
+		System.out.println("main() : x = " + d.x);
+
+		change(d);
+		System.out.println("After change(d)");
+		System.out.println("main() : x = " + d.x);
+	}
+
+	static void change(Data2 d) { // 참조형 매개변수
+		d.x = 1000;
+		System.out.println("change() : x = " + d.x);
+	}
+}
+```
+
+change메소드 이후 1000으로 바뀜 객체를 참조하였으므로, change 메소드에서 Data2객체를 다룰 수 있게 됨
+
+참조형 반환타입
+
+```java
+class Data3 { int x; }
+
+class Ex6_8 {
+	public static void main(String[] args) {
+		Data3 d = new Data3();
+		d.x = 10;
+
+		Data3 d2 = copy(d); //static 메서드는 객체생성없이 호출 가능
+		System.out.println("d.x ="+d.x);
+		System.out.println("d2.x="+d2.x);
+	}
+
+	static Data3 copy(Data3 d) {
+		Data3 tmp = new Data3();    // 새로운 객체 tmp를 생성한다.
+
+		tmp.x = d.x;  // d.x의 값을 tmp.x에 복사한다.
+
+		return tmp;   // 복사한 객체의 주소를 반환한다.
+	}
+}
+```
+
+메서드의 반환타입이 참조형일 경우 객체의 주소를 반환함
+
+반환받는 변수의 타입도 일치해야함
+
+static 메서드는 객체생성 없이 호출 가능
+
+## static 메서드와 인스턴스 메서드
+
+인스턴스 메서드
+
+생성후 참조변수.메서드이름(); 으로 호출
+
+인스턴스 멤버와 관련된 작업을 하는 메서드
+
+메서드 내에서 인스턴스 변수 사용 가능
+
+static 메서드
+
+객체생성없이 클래스이름.메서드이름(); 으로 호출
+
+인스턴스 멤버와 관련없는 작업을 하는 메서드
+
+메서드 내에서 인스턴스 변수 사용불가
+
+static 메서드를 만들때 static을 붙이는 기준은 ?
+
+→ iv 인스턴스 변수를 사용하지 않을 때
+
+```java
+class MyMath2 {
+	long a, b;
+
+	//인스턴스 메서드
+	// 인스턴스 변수 a, b만을 잉요해서 작업하므로 매개변수가 필요없다.
+	long add()		{ return a + b; }  // a, b는 인스턴스 변수
+	long subtract() { return a - b; }
+	long multiply() { return a * b; }
+	double divide() { return a / b; }
+
+	// static 메서드
+	// 인스턴스 변수와 관계없이 매개변수만으로 작업이 가능하다.
+	static long   add(long a, long b)		 { return a + b; }  // a, b는 지역변수
+	static long   subtract(long a, long b)   { return a - b; }
+	static long   multiply(long a, long b)   { return a * b; }
+	static double divide(long a, long b) { return a / (double)b; }
+	
+}
+
+class Ex6_9 {
+	public static void main(String args[]) {
+		// 클래스 메서드 호출. 인스턴스 생성없이 호출가능
+		System.out.println(MyMath2.add(200L, 100L));
+		System.out.println(MyMath2.subtract(200L, 100L));
+		System.out.println(MyMath2.multiply(200L, 100L));
+		System.out.println(MyMath2.divide(200L, 100L));
+
+		MyMath2 mm = new MyMath2(); // 인스턴스를 생성
+		mm.a = 200L;
+		mm.b = 100L;
+		// 인스턴스 메서드는 객체생성 후에만 호출이 가능함.
+		System.out.println(mm.add());
+		System.out.println(mm.subtract());
+		System.out.println(mm.multiply());
+		System.out.println(mm.divide());
+   }
+}
+```
+
+클래스 메서드는 생성없이 바로 호출 가능
+
+~~왜냐하면 클래스 파일이 메모리에 올라갈때 생성되기 때문에~~
+
+인스턴스 메서드는 객체 생성 이후 호출 가능
+
+iv 사용과 구분을 잘 하자
+
+객체 = iv 묶음
+
+static 메서드에서 iv가 필요없는 이유는 객체변수를 사용하지 않기 때문(local variable 사용)
+
+인스턴스 메서드에서 인스턴스 매개변수 입력을 받을 수 있을까?
+
+- 답
+
+  입력받을 수 있습니다
+
+
+static 메서드에서 인스턴스 매개변수 입력을 받을 수 있을까?
+
+- 답
+
+  입력받을 수 없습니다. 왜냐하면 iv는 인스턴스 메서드에서만 사용이 가능하며 static 메서드는 lv(local variable) 만 사용가능하기 때문입니다.
+
+
+## 상속
+
+- 기존 클래스로 새로운 클래스를 작성하는 것
+- 두 클래스를 부모와 자식으로 관계를 맺어주는 것
+- 자손은 조상(부모의부모)의 모든 멤버를 상속받음
+- 자손의 멤버 개수는 조상보다 적을 수 없음
+- 자손의 변경은 조상에 영향을 미치지 않음
+
+계속 확장(extends)됨
+
+```java
+class Parent { int x;}
+class Child extends Parent { int y;} // Child 가 Parent를 상속 Child 멤버는 x, y 2개
+```
+
+## 포함관계
+
+포함이란 → 클래스의 멤버로 참조변수를 선언하는 것
+
+```java
+class Point {
+	int x;
+	int y;
+}
+
+class Circle {
+	Point c = new Point();
+	int r;
+}
+
+class Car {
+	Engine e = new Engine();
+	Door [] d = new Door[4];
+}
+```
+
+구조 생각해보기
+
+클래스 단위로 새로운 클래스를 만들게 되면 복잡도가 줄어들고 유지 보수가 편리해짐
+
+포함을 90% 사용
+
+## 접근 제어자
+
+private - 같은 클래스 내에서만 접근이 가능함
+
+(default) - 같은 패키지 내에서만 접근이 가능함
+
+protected - 같은 패키지 내에서, 그리고 다른 패키지의 자손 클래스에서 접근 가능함
+
+public - 접근 제한이 없음
+
+| 제어자 | 같은 클래스 | 같은 패키지 | 자손 클래스 | 전체 |
+| --- | --- | --- | --- | --- |
+| public | O | O | O | O |
+| protected | O | O | O |  |
+| (default) | O | O |  |  |
+| private | O |  |  |  |
+
+클래스 - public, private
+
+클래스 - public, private
+
+멤버 - public, private, (defalut), protected
+
+## 캡슐화
+
+접근 제어자를 사용하는 이유
+
+- 외부로부터 데이터를 보호하기 위해서
+
+- 외부에는 불필요한, 내부적으로만 사용하기 위해
+
+캡슐화 - 접근 제어자를 private으로 하여 외부에서 직접 접근하지 못하며 메서드를 통한 간접접근으로 함
+
+```java
+class Time {
+    private int hour;
+    private int minute;
+    private int second;
+
+    public void setHour(int hour) {
+        if (isValidHour(hour)) return;
+
+        this.hour = hour;
+    }
+
+    //매개변수로 넘겨진 hour가 유효한지 확인해서 알려주는 메서드
+    private boolean isValidHour(int hour) {
+        return hour <0 || hour >23;
+    }
+
+    public int getHour() {return hour;} ;
+}
+
+public class TimeTest {
+    public static void main(String[] args) {
+        Time t = new Time();
+        // t.hour= -100; //에러
+        t.setHour(21); // hour값을 21로 변경
+        System.out.println(t.getHour());
+        t.setHour(100);
+    }
+}
+```
+
+접근제어자를 통한 캡슐화 예시코드
+
+## 다형성
+
+다형성
+
+~~- 여러 가지 형태를 가질 수 있는 능력~~
+
+- 조상 타입 참조 변수로 자손 타입 객체를 다루는 것 `Tv t = new SmartTv();` //타입 불일치
+
+- 객체와 참조변수의 타입이 일치할 때와 불일치할때의 차이
+
+- 자손 타입의 참조변수로 조상 타입의 객체를 가리킬 수 없다.
+
+<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\smarttv" width="450"/>
+
+smartTv 리모콘은 7개 기능 모두 사용가능
+
+Tv 리모콘은 5개 일부기능(기존 tv 기능인)만사용가능
+
+실제 멤버 개수보다 적게 사용할 수 밖에 없음
+
+장점
+
+- 다형적 매개변수
+- 하나의 배열로 여러종류
+
+## 참조변수의 형변환
+
+- 사용할 수 있는 멤버의 개수를 조절하는 것
+
+- 조상 자손 관계의 참조변수만 서로 형변환 가능
+
+<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\형변환" width="450"/>
+
+`Car c = (car)f;` 참조변수f가 car 타입으로 형변환을 함, FireEngine 객체와 같은 주소를 가리킴, 하지만 멤버 사용 개수는 4개만 가능함
+
+```java
+class Ex7_7 {
+	public static void main(String args[]) {
+		Car car = null;
+		FireEngine fe = new FireEngine(); // 실제 인스턴스가 무엇인지 중요
+		FireEngine fe2 = null;
+
+		fe.water();
+		car = fe;    // car = (Car)fe;에서 형변환이 생략됨
+//		car.water();
+		fe2 = (FireEngine)car; // 자손타입 ← 조상타입. 형변환 생략 불가
+		fe2.water();
+	}
+}
+
+class Car {
+	String color;
+	int door;
+
+	void drive() { 	// 운전하는 기능
+		System.out.println("drive, Brrrr~");
+	}
+
+	void stop() {  	// 멈추는 기능	
+		System.out.println("stop!!!");	
+	}
+}
+
+class FireEngine extends Car {	// 소방차
+	void water() {	// 물을 뿌리는 기능
+		System.out.println("water!!!");
+	}
+}
+```
+
+## instanceof 연산자
+
+- 참조변수의 형변환 가능 여부, 확인에 사용, 가능하면 true 반환
+
+- 조상, 자손관계에 있으면 true 반환
+
+```java
+void doWork(Car c) {
+	if (c instanceof FireEngine) { // 형변환이 가능한지 확인
+		FireEngine fe = (FireEngine)c;
+		fe.water();
+		...
+	}
+}
+```
+
+참조변수의 형변환을 하는 이유는 ?
+
+- 참조변수를 변경함으로써 사용할 수 있는 멤버의 개수를 조절하기 위해(변경이후에도 객체, 값은 그대로임)
+
+instanceof 연산자는 언제 사용하나요 ?
+
+- 참조변수 형변환을 하기 전에 형변환 가능 여부를 확인할 때, 상속관계가 아닐경우 형변환이 불가하므로
+
+## 매개변수의 다형성
+
+다형성
+
+- `Tv t = new SmartTv();`
+- 참조변수의 형변환 - 리모콘 바꾸기(멤버개수 조절하기 위해)
+
+`FireEngine fe = (FireEngine)c;` // c는 Car의 참조변수
+
+- instanceof 연산자 - 형변환 가능여부 체크
+
+- 참조형 매개변수는 메서드 호출시 자신과 같은 타입 혹은 자손타입의 인스턴스를 넘겨줄 수 있다.
+
+```java
+class Product {
+	int price;			// 제품의 가격
+	int bonusPoint;	// 제품구매 시 제공하는 보너스점수
+
+	Product(int price) {
+		this.price = price;
+		bonusPoint = (int)(price/10.0);	// 보너스점수는 제품가격의 10%
+	}
+}
+
+class Tv1 extends Product {
+	Tv1() {
+		// 조상클래스의 생성자 Product(int price)를 호출한다.
+		super(100);		// Tv의 가격을 100만원으로 한다.
+	}
+
+	// Object클래스의 toString()을 오버라이딩한다.
+	public String toString() { return "Tv"; }
+}
+
+class Computer extends Product {
+	Computer() { super(200); }
+
+	public String toString() { return "Computer"; }
+}
+
+class Buyer {	// 고객, 물건을 사는 사람
+	int money = 1000;	  // 소유금액
+	int bonusPoint = 0; // 보너스점수
+
+	void buy(Product p) {
+		if(money < p.price) {
+			System.out.println("잔액이 부족하여 물건을 살 수 없습니다.");
+			return;
+		}
+
+		money -= p.price;            // 가진 돈에서 구입한 제품의 가격을 뺀다.
+		bonusPoint += p.bonusPoint;  // 제품의 보너스 점수를 추가한다.
+		System.out.println(p + "을/를 구입하셨습니다."); // p = p.toString
+	} // tv가 들어오게되면 tv의 toString이 넘어옴
+}
+
+class Ex7_8 {
+	public static void main(String args[]) {
+		Buyer b = new Buyer();
+
+		b.buy(new Tv1()); // buy(Product p)
+		//Product p = new Tv1(); 위 줄과 같은 것
+		//b.buy(p);
+		b.buy(new Computer()); // buy(Product p)
+
+		System.out.println("현재 남은 돈은 " + b.money + "만원입니다.");
+		System.out.println("현재 보너스점수는 " + b.bonusPoint + "점입니다.");
+	}
+}
+```
+
+위 코드에서 buy 메소드가 입력받을 수 있는 타입은 product 타입이다. tv와 computer가 product를 상속받지 않았더라면 저렇게 사용할 수 없다. 왜냐하면 tv, computer는 매개변수 타입인 product와는 자손관계도 아니며 아무 관련이 없기 때문이다. 하지만 product를 상속받았으므로 product 타입요청에도 tv, computer 객체를 사용할 수 있는 특징이 있다. 그리고 위 코드에서 super, this, toString 등 자주 사용되는 기능들이 있으니 잘 살펴보도록 하자.
+
+참조변수 p와 문자열이 결합하게 되면 toString을 호출하므로 p = p.toString 이다. 이는 애초에 이렇게 설계되었다고 한다.
