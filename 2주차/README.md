@@ -106,7 +106,7 @@ TV 설계도 작성 → TV 객체 생성 → TV 객체 사용
 
 2개의 객체가 만들어지고 각각의 다른 공간을 갖는다
 
-<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\주소변경" width="450"/>
+<img src="https://user-images.githubusercontent.com/109144975/191419237-d1279d5d-dc0c-4807-8891-1c9a762fb702.jpg" width="400" height="220">
 
 주소 변경
 
@@ -124,7 +124,7 @@ TV 설계도 작성 → TV 객체 생성 → TV 객체 사용
 
 
 
-<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\객체배열" width="450"/>
+<img src="https://user-images.githubusercontent.com/109144975/191419195-03420720-51e2-4b43-b56a-77f6cc2d0c6a.jpg" width="400" height="220">
 
 객체배열을 만들고 객체 생성을 반드시 해줘야 함 → `tvArr[0] = new Tv();`
 
@@ -211,7 +211,7 @@ return 반환타입;
 
 main함수의 println 이 사용되는 과정
 
-<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\호출스택" width="450"/>
+<img src="https://user-images.githubusercontent.com/109144975/191419208-6aa180c8-3b4b-4d80-8034-26bab6a2a189.jpg" width="400" height="220">
 
 호출스택의 변화
 
@@ -512,7 +512,7 @@ public class TimeTest {
 
 - 자손 타입의 참조변수로 조상 타입의 객체를 가리킬 수 없다.
 
-<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\smarttv" width="450"/>
+<img src="https://user-images.githubusercontent.com/109144975/191420388-5245685d-057e-42e0-97a4-acde45e99da6.jpg" width="400" height="220">
 
 smartTv 리모콘은 7개 기능 모두 사용가능
 
@@ -531,7 +531,7 @@ Tv 리모콘은 5개 일부기능(기존 tv 기능인)만사용가능
 
 - 조상 자손 관계의 참조변수만 서로 형변환 가능
 
-<img alt="Untitled" height="300" src="C:\Users\jongh\Downloads\문서관련\photo\형변환" width="450"/>
+<img src="https://user-images.githubusercontent.com/109144975/191419241-06154e9b-4728-4cc6-8e93-7fc1764c662a.jpg" width="400" height="220">
 
 `Car c = (car)f;` 참조변수f가 car 타입으로 형변환을 함, FireEngine 객체와 같은 주소를 가리킴, 하지만 멤버 사용 개수는 4개만 가능함
 
