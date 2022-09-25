@@ -17,7 +17,7 @@ class Time {
     public int getHour() {return hour;} ;
 }
 
-public class TimeTest {
+public class encapsulation {
     public static void main(String[] args) {
         Time t = new Time();
         // t.hour= -100; // 에러, hour는 time클래스의 private로 설정되어있으므로 외부에서 접근할 수 없음
