@@ -1,5 +1,3 @@
-package javabible;
-
 abstract class Unit2 {
     int x, y;
     abstract void move(int x, int y);
