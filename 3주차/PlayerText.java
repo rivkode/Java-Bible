@@ -1,5 +1,3 @@
-package javabible;
-
 abstract class Player{ // 추상 클래스
     abstract void play (int pos); // 추상 메서드
     abstract void stop();

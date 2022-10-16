@@ -1,5 +1,3 @@
-package javabible;
-
 class A {
     public void method(I i) { // 의존일 경우 A도 변경해야 함
         i.method(); // 인터페이스는 A가 변경이 없도록 하는 것이 목표
