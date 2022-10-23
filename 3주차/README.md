@@ -463,3 +463,5 @@ void repair(Repairable r) {
 - 인터페이스에 새로운 메서드(추상메서드)를 추가하기 어려움.
 
 - 디폴트 메서드는 인스턴스 메서드(인터페이스 원칙 위반) -예외
+
+참고 : [자바의 정석 ch7](https://www.youtube.com/watch?v=Pgutf0G3nE4&list=PLW2UjW795-f5JPTsYHGAawAck9cQRw5TD&index=20)
