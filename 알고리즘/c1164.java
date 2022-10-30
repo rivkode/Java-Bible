@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class k1164 {
+public class c1164 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 

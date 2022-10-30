@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class k1093 {
+public class c1093 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

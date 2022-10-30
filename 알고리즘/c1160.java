@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class k1160 {
+public class c1160 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         partTime(in.nextInt());
