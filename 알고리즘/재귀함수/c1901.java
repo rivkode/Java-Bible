@@ -1,3 +1,5 @@
+package 재귀함수;
+
 import java.util.Scanner;
 
 public class c1901 {
