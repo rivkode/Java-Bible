@@ -14,9 +14,8 @@ public class c1402 {
         }
 
         for(int i=0; i<num; i++) {
-            int peek = stack.peek();
-            System.out.println(peek);
-            stack.pop();
+            int pop = stack.pop();
+            System.out.println(pop);
         }
     }
 }
