@@ -1,4 +1,4 @@
-package backjoon;
+package Basic_example;
 
 public class b2447 {
     public static void main(String[] args) {

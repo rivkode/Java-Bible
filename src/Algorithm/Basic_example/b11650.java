@@ -1,6 +1,5 @@
-package backjoon;
+package Basic_example;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 

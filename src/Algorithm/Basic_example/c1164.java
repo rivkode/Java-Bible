@@ -1,3 +1,5 @@
+package Basic_example;
+
 import java.util.Scanner;
 
 public class c1164 {
