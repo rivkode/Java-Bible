@@ -1,4 +1,4 @@
-package 재귀함수;
+package recursive_function;
 
 import java.util.Scanner;
 

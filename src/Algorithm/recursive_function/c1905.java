@@ -1,20 +1,21 @@
-package 재귀함수;
+package recursive_function;
 
 import java.util.Scanner;
 
 public class c1905 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int result = add(in.nextInt());
-        System.out.println(result);
-
+        add(in.nextInt());
     }
 
-    public static int add(int num) {
+    public static void add(int num) {
+        int result = num + num-1;
+
         if(num == 0) {
-            return num;
+            System.out.println(result);
+            return;
         }
-        return add(num - 1);
+        add(num - 1);
     }
 }
 
