@@ -1,4 +1,4 @@
-package Basic_example;
+package Algorithm.Basic_example;
 
 public class b2447 {
     public static void main(String[] args) {
