@@ -17,23 +17,19 @@ public class ByteExam2 {
             int readCount = -1;
             byte[] buffer = new byte[512];
             while((readCount = fis.read(buffer))!= -1){
-                // read 메서드 - 읽을 거리가 없을 경우 -1일 반환
                 fos.write(buffer, 0, readCount);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }finally{
             try {
-                fos.close();
+                FioCloseException.fioCloseException(fos);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             try {
-                fis.close();
+                FisCloseException.fisCloseException(fis);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
