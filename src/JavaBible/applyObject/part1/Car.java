@@ -5,6 +5,8 @@ class Car {
     int Gear;
     int Speed;
 
+    static int Wheel;
+    static int Window;
 
     void Engine() {
         Engine = !Engine;
