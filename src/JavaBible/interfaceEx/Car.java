@@ -1,4 +1,4 @@
-package JavaBible.applyObject.interfaceEx;
+package JavaBible.interfaceEx;
 
 public interface Car {
     String EngineStart(String engine);

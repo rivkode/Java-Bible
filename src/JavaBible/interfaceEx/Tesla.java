@@ -1,4 +1,4 @@
-package JavaBible.applyObject.interfaceEx;
+package JavaBible.interfaceEx;
 
 public class Tesla implements Car{
     public static final int wheel = 4;

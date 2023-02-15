@@ -1,4 +1,4 @@
-package JavaBible.javaBible_week3;
+package JavaBible;
 
 abstract class Player{ // 추상 클래스
     abstract void play (int pos); // 추상 메서드

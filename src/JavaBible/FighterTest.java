@@ -1,4 +1,4 @@
-package JavaBible.javaBible_week3;
+package JavaBible;
 
 abstract class Unit2 {
     int x, y;

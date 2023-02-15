@@ -1,4 +1,4 @@
-package JavaBible.applyObject.part1;
+package JavaBible.part1;
 
 public class Transfortation {
 

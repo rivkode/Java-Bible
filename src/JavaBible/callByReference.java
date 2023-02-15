@@ -1,4 +1,4 @@
-package JavaBible.javaBible_week2;
+package JavaBible;
 
 class Data { int x; }
 

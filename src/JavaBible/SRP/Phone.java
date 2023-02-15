@@ -1,4 +1,4 @@
-package JavaBible.applyObject.SRP;
+package JavaBible.SRP;
 
 // SRP : single responsibility principle 단일 책임 원칙
 

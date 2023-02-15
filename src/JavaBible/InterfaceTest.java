@@ -1,4 +1,4 @@
-package JavaBible.javaBible_week3;
+package JavaBible;
 
 class A {
     public void method(I i) { // 의존일 경우 A도 변경해야 함
