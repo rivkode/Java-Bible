@@ -1,9 +1,9 @@
 package JavaBible.interfaceEx;
 
 public class Tesla implements Car{
-    public static final int wheel = 4;
-    public String name;
     public String engine;
+    public int wheel;
+    public String name;
 
     void EngineStartByFuel() {
 
@@ -13,17 +13,38 @@ public class Tesla implements Car{
 
     }
 
-    public static void main(String[] args) {
-        Tesla tesla = new Tesla();
-        tesla.name = "Model3";
-        tesla.engine = "elec";
-        String start = tesla.EngineStart(tesla.engine);
-        System.out.println("start = " + start);
-        System.out.println(tesla.name);
-    }
-
     @Override
     public String EngineStart(String engine) {
         return engine;
+    }
+
+    public Tesla(String name, String engine, int wheel) {
+        this.name = name;
+        this.engine = engine;
+        this.wheel = wheel;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    public int getWheel() {
+        return wheel;
+    }
+
+    public void setWheel(int wheel) {
+        this.wheel = wheel;
     }
 }
